@@ -1,0 +1,24 @@
+.learning-modes-panel { max-width:1208px; margin:0 auto 18px; padding:20px; box-sizing:border-box; border:1px solid #c9cfd5; border-radius:12px; background:#fff; color:#26323b; font:13px/1.5 system-ui,sans-serif; }
+.learning-modes-panel [hidden] { display:none!important; }
+.learning-modes-panel h2 { margin:0; font-size:19px; letter-spacing:-.3px; }
+.learning-modes-panel h3 { margin:0 0 8px; font-size:16px; }
+.learning-modes-panel h4 { margin:12px 0 6px; font-size:14px; }
+.learning-modes-panel p { margin:8px 0; overflow-wrap:anywhere; }
+.learning-modes-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:16px; }
+.learning-modes-grid article { min-width:0; padding:16px; border:1px solid #dce2e7; border-radius:8px; }
+.learning-mode-controls { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+.learning-modes-panel button,.learning-mode-button { border:1px solid #bac3ca; border-radius:5px; background:#f5f7f8; color:inherit; padding:8px 10px; font:inherit; text-decoration:none; cursor:pointer; }
+.learning-modes-panel button:disabled,.learning-modes-panel [aria-disabled="true"] { opacity:.45; cursor:default; }
+.learning-modes-panel a[aria-disabled="true"] { pointer-events:none; }
+.learning-modes-panel button:focus-visible,.learning-modes-panel a:focus-visible,.learning-modes-panel summary:focus-visible { outline:2px solid #506f88; outline-offset:2px; }
+.learning-mode-note { color:#66727b; font-size:12px; }
+.learning-mode-phase,.learning-mode-answer { font-weight:600; }
+.learning-mode-error { color:#8c432e; }
+.learning-modes-panel details { margin:10px 0; }
+.learning-modes-panel summary { font-weight:600; cursor:pointer; }
+.learning-modes-panel pre { max-height:260px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; font:11px/1.5 ui-monospace,monospace; background:#f5f7f9; padding:10px; border-radius:5px; }
+.learning-modes-panel table { width:100%; border-collapse:collapse; margin:12px 0; font-size:12px; }
+.learning-modes-panel th,.learning-modes-panel td { padding:7px; text-align:left; border-bottom:1px solid #dce2e7; }
+@media(max-width:1260px) { .learning-modes-panel { margin-left:20px; margin-right:20px; } }
+@media(max-width:900px) { .learning-modes-grid { grid-template-columns:1fr; } }
+@media(max-width:780px) { .learning-modes-panel { margin-left:12px; margin-right:12px; padding:14px; } .learning-modes-panel h2 { font-size:17px; } .learning-modes-grid article { padding:12px; } }

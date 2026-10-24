@@ -1,0 +1,24 @@
+.provider-comparison-panel { max-width:1208px; margin:0 auto 18px; padding:20px; box-sizing:border-box; border:1px solid #c9cfd5; border-radius:12px; background:#fff; color:#26323b; font:13px/1.5 system-ui,sans-serif; }
+.provider-comparison-panel [hidden] { display:none!important; }
+.provider-comparison-panel h2 { margin:0; font-size:19px; letter-spacing:-.3px; }
+.provider-comparison-panel h3 { margin:16px 0 8px; font-size:16px; }
+.provider-comparison-panel p { margin:8px 0; overflow-wrap:anywhere; }
+.provider-comparison-panel label { display:block; margin-top:16px; font-weight:600; }
+.provider-comparison-panel input { display:block; width:100%; max-width:600px; box-sizing:border-box; margin-top:6px; padding:9px 10px; border:1px solid #bac3ca; border-radius:5px; background:#fff; color:inherit; font:inherit; }
+.provider-comparison-controls { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+.provider-comparison-panel button,.provider-comparison-button { border:1px solid #bac3ca; border-radius:5px; background:#f5f7f8; color:inherit; padding:8px 10px; font:inherit; text-decoration:none; cursor:pointer; }
+.provider-comparison-panel :disabled,.provider-comparison-panel [aria-disabled="true"] { opacity:.5; cursor:default; }
+.provider-comparison-panel a[aria-disabled="true"] { pointer-events:none; }
+.provider-comparison-panel :is(button,a,input,summary):focus-visible { outline:2px solid #506f88; outline-offset:2px; }
+.provider-comparison-note { color:#66727b; font-size:12px; }
+.provider-comparison-phase { font-weight:600; }
+.provider-comparison-error { color:#8c432e; }
+.provider-comparison-panel details { margin:10px 0; }
+.provider-comparison-panel summary { font-weight:600; cursor:pointer; }
+.provider-comparison-panel pre { max-height:260px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; font:11px/1.5 ui-monospace,monospace; background:#f5f7f9; padding:10px; border-radius:5px; }
+.provider-comparison-table { overflow-x:auto; }
+.provider-comparison-panel table { width:100%; border-collapse:collapse; margin:12px 0; font-size:12px; }
+.provider-comparison-panel caption { text-align:left; font-weight:600; padding-bottom:6px; }
+.provider-comparison-panel th,.provider-comparison-panel td { padding:7px; text-align:left; border-bottom:1px solid #dce2e7; }
+@media(max-width:1260px) { .provider-comparison-panel { margin-left:20px; margin-right:20px; } }
+@media(max-width:780px) { .provider-comparison-panel { margin-left:12px; margin-right:12px; padding:14px; } .provider-comparison-panel h2 { font-size:17px; } }

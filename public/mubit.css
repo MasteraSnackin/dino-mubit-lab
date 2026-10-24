@@ -1,0 +1,70 @@
+.mubit-panel {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: 54px;
+  transform: translateX(-50%);
+  width: min(610px, calc(100vw - 32px));
+  max-height: 43vh;
+  overflow: auto;
+  box-sizing: border-box;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  background: #fff;
+  color: #262626;
+  box-shadow: 0 3px 15px #0000000d;
+  font: 13px/1.45 system-ui, -apple-system, sans-serif;
+  text-align: left;
+}
+.mubit-panel > summary {
+  padding: 11px 14px;
+  cursor: pointer;
+  font-weight: 650;
+}
+.mubit-panel > summary:focus-visible,
+.mubit-panel button:focus-visible,
+.mubit-panel select:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: -3px;
+}
+.mubit-body { padding: 0 14px 13px; }
+.mubit-body p { margin: 6px 0; }
+.mubit-connection, .mubit-phase, .mubit-score { font-weight: 600; }
+.mubit-meta, .mubit-evidence { color: #666; font-size: 12px; }
+.mubit-evidence { overflow-wrap: anywhere; }
+.mubit-body label { display: inline-block; margin: 8px 10px 4px 0; }
+.mubit-body select {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  background: #fff;
+  color: #262626;
+  padding: 4px 7px;
+  font: inherit;
+  max-width: 100%;
+}
+.mubit-buttons { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0; }
+.mubit-buttons button {
+  border: 1px solid #a5a5a5;
+  border-radius: 5px;
+  padding: 7px 10px;
+  background: #f7f7f7;
+  color: #262626;
+  font: inherit;
+  cursor: pointer;
+}
+.mubit-buttons button:disabled { opacity: .45; cursor: default; }
+.mubit-buttons button:not(:disabled):hover { background: #ededed; }
+.mubit-review { border-top: 1px solid #ddd; margin-top: 9px; padding-top: 4px; }
+.mubit-review:empty { display: none; }
+.mubit-review ul { margin: 7px 0 0; padding-left: 20px; }
+.mubit-key-setup { border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; padding: 10px 0; margin: 10px 0; }
+.mubit-key-setup > summary { cursor: pointer; font-weight: 600; }
+.mubit-key-setup input { width: 100%; box-sizing: border-box; border: 1px solid #aaa; border-radius: 4px; padding: 8px; font: inherit; }
+.mubit-key-setup input:focus-visible { outline: 2px solid #47633e; }
+@media (max-height: 620px) {
+  .mubit-panel { max-height: 34vh; bottom: 42px; }
+}
+@media (max-width: 420px) {
+  .mubit-panel { width: calc(100vw - 16px); }
+  .mubit-buttons button { flex: 1 1 42%; }
+}

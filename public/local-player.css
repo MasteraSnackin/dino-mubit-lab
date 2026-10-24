@@ -1,0 +1,29 @@
+.local-player-panel {
+  box-sizing: border-box;
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  padding: 17px;
+  background: #fff;
+  color: #262626;
+  font: 14px/1.45 system-ui, -apple-system, sans-serif;
+  min-width: 0;
+}
+.local-player-panel h2 { font: 650 17px/1.3 system-ui, sans-serif; margin: 0 0 7px; }
+.local-player-panel p { margin: 7px 0; }
+.local-player-label { color: #49564e; font-size: 12px; }
+.local-player-copy { color: #626262; font-size: 13px; overflow-wrap: anywhere; }
+.local-player-phase, .local-player-metrics { font-weight: 600; }
+.local-player-buttons { display: flex; flex-wrap: wrap; gap: 7px; margin: 13px 0; }
+.local-player-buttons button {
+  border: 1px solid #9daba2;
+  border-radius: 6px;
+  padding: 8px 11px;
+  background: #f5f8f6;
+  color: #243d2c;
+  font: inherit;
+  cursor: pointer;
+}
+.local-player-buttons button:disabled { opacity: .45; cursor: default; }
+.local-player-buttons button:not(:disabled):hover { background: #e8f0eb; }
+.local-player-buttons button:focus-visible { outline: 2px solid #315b3c; outline-offset: 2px; }
+.local-player-buttons [hidden] { display: none; }
