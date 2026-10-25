@@ -2,7 +2,7 @@
 
 A local dinosaur game for testing AI suggestions, reviewing answers and keeping evidence of model experiments.
 
-[Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4)
+[Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) · [Live system map](https://masterasnackin.github.io/dino-mubit-lab/)
 
 ## Description
 
@@ -74,7 +74,9 @@ flowchart LR
 
 The browser runs the game and sends local requests to the Python server. The server owns private records and makes explicit provider requests; its public web directory contains only the interface and assets. Local training runs separately from Mubit inference and writes its own evidence.
 
-The Archify map combines this README with [ARCHITECTURE.md](ARCHITECTURE.md), checked against code at [commit `a4bd5ea`](https://github.com/MasteraSnackin/dino-mubit-lab/tree/a4bd5eae0a7f93a34c85572f23827bb65632e1ee). Download and open the [interactive system map](docs/diagrams/dino-mubit-lab.html) to search components, trace routes and switch between the three guided views. The [editable map source](docs/diagrams/dino-mubit-lab.architecture.json) and [delivery receipt](docs/diagrams/dino-mubit-lab.delivery.json) sit beside it. GitHub displays the HTML source; open the downloaded file in a browser to use the map.
+The Archify map combines this README with [ARCHITECTURE.md](ARCHITECTURE.md), checked against code at [commit `a4bd5ea`](https://github.com/MasteraSnackin/dino-mubit-lab/tree/a4bd5eae0a7f93a34c85572f23827bb65632e1ee). Open the [live interactive system map](https://masterasnackin.github.io/dino-mubit-lab/) to search components, trace routes and switch between the three guided views. It runs directly in your browser on GitHub Pages and needs no API key or local server.
+
+The [standalone HTML file](docs/diagrams/dino-mubit-lab.html), [editable map source](docs/diagrams/dino-mubit-lab.architecture.json) and [delivery receipt](docs/diagrams/dino-mubit-lab.delivery.json) remain available in the repository. GitHub's file viewer displays the HTML source; download that file to open it offline. See the [Pages publishing note](docs/diagrams/PUBLISHING.md) for the hosted copy's source and update process.
 
 ## Installation
 
