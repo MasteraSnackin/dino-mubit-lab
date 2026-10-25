@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Dino Mubit Lab",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/MasteraSnackin/dino-mubit-lab",
+      "revision": "a4bd5eae0a7f93a34c85572f23827bb65632e1ee"
+    },
+    "views": [
+      {
+        "id": "review",
+        "label": "Mubit review",
+        "focus": [
+          "browser",
+          "local-service",
+          "bridge",
+          "mubit"
+        ],
+        "note": "Explicit requests carry bounded game evidence to Mubit. The local service preserves request receipts."
+      },
+      {
+        "id": "local-learning",
+        "label": "Local learning",
+        "focus": [
+          "records",
+          "local-adapter"
+        ],
+        "note": "Approved compact answers feed an explicit local MLX run. These weight changes are separate from Mubit."
+      },
+      {
+        "id": "comparison",
+        "label": "Provider comparison",
+        "focus": [
+          "benchmark",
+          "mubit",
+          "openai"
+        ],
+        "note": "One frozen input, three alternating pairs. Reported token usage and measured response times are saved; missing fields stay unknown."
+      }
+    ]
+  },
+  "layout": {
+    "mode": "grid",
+    "origin": [
+      45,
+      65
+    ],
+    "cols": 4,
+    "cellW": 180,
+    "cellH": 82,
+    "gapX": 165,
+    "gapY": 110
+  },
+  "components": [
+    {
+      "id": "browser",
+      "type": "frontend",
+      "label": "Browser",
+      "sublabel": "Game and review UI",
+      "row": 1,
+      "col": 0,
+      "sources": [
+        {
+          "path": "public/index.html",
+          "line": 1,
+          "end_line": 41,
+          "label": "Browser entry"
+        },
+        {
+          "path": "public/local-policy.js",
+          "line": 1,
+          "end_line": 109,
+          "label": "Canvas-based controller"
+        },
+        {
+          "path": "public/experiment-runner.js",
+          "line": 1,
+          "end_line": 196,
+          "label": "Fixed-course trials"
+        }
+      ]
+    },
+    {
+      "id": "local-service",
+      "type": "backend",
+      "label": "Local service",
+      "sublabel": "Python :4040",
+      "row": 1,
+      "col": 1,
+      "sources": [
+        {
+          "path": "serve.py",
+          "line": 32,
+          "end_line": 245,
+          "label": "Request validation and routes"
+        },
+        {
+          "path": "review_task_store.py",
+          "line": 1,
+          "end_line": 442,
+          "label": "Compact review custody"
+        },
+        {
+          "path": "memory_review_store.py",
+          "line": 1,
+          "end_line": 416,
+          "label": "Approved prompt context"
+        }
+      ]
+    },
+    {
+      "id": "bridge",
+      "type": "backend",
+      "label": "Mubit bridge",
+      "sublabel": "Validation and budget",
+      "row": 1,
+      "col": 2,
+      "sources": [
+        {
+          "path": "mubit_bridge.py",
+          "line": 1,
+          "end_line": 95,
+          "label": "Endpoints and limits"
+        },
+        {
+          "path": "mubit_bridge.py",
+          "line": 170,
+          "end_line": 225,
+          "label": "Server-side credentials"
+        },
+        {
+          "path": "ARCHITECTURE.md",
+          "line": 24,
+          "end_line": 40,
+          "label": "Documented system relationships"
+        }
+      ]
+    },
+    {
+      "id": "mubit",
+      "type": "external",
+      "label": "Mubit API",
+      "sublabel": "Hosted inference",
+      "row": 1,
+      "col": 3,
+      "sources": [
+        {
+          "path": "mubit_bridge.py",
+          "line": 25,
+          "end_line": 70,
+          "label": "Mubit endpoints"
+        },
+        {
+          "path": "provider_comparison.py",
+          "line": 28,
+          "end_line": 40,
+          "label": "Comparison endpoint"
+        },
+        {
+          "path": "README.md",
+          "line": 7,
+          "end_line": 9,
+          "label": "Purpose and learning limits"
+        }
+      ]
+    },
+    {
+      "id": "keychain",
+      "type": "security",
+      "label": "macOS Keychain",
+      "sublabel": "Mubit inference key",
+      "row": 0,
+      "col": 2,
+      "sources": [
+        {
+          "path": "key_store.py",
+          "line": 1,
+          "end_line": 66,
+          "label": "Save local key"
+        },
+        {
+          "path": "configure_mubit.py",
+          "line": 18,
+          "end_line": 62,
+          "label": "Private setup prompt"
+        }
+      ]
+    },
+    {
+      "id": "records",
+      "type": "database",
+      "label": "Private files",
+      "sublabel": "JSON and images",
+      "row": 2,
+      "col": 1,
+      "sources": [
+        {
+          "path": "run_store.py",
+          "line": 1,
+          "end_line": 30,
+          "label": "Run records"
+        },
+        {
+          "path": "learning_store.py",
+          "line": 17,
+          "end_line": 45,
+          "label": "Cases and reserved seeds"
+        },
+        {
+          "path": "review_target_store.py",
+          "line": 1,
+          "end_line": 85,
+          "label": "Approved answer revisions"
+        }
+      ]
+    },
+    {
+      "id": "local-adapter",
+      "type": "backend",
+      "label": "Local MLX pilot",
+      "sublabel": "Explicit CLI only",
+      "row": 2,
+      "col": 0,
+      "sources": [
+        {
+          "path": "local_adapter.py",
+          "line": 148,
+          "end_line": 187,
+          "label": "Freeze approved examples"
+        },
+        {
+          "path": "local_adapter.py",
+          "line": 314,
+          "end_line": 415,
+          "label": "Train and verify weights"
+        },
+        {
+          "path": "ARCHITECTURE.md",
+          "line": 78,
+          "end_line": 88,
+          "label": "Memory and local training distinction"
+        }
+      ]
+    },
+    {
+      "id": "benchmark",
+      "type": "backend",
+      "label": "Provider comparison",
+      "sublabel": "Three matched pairs",
+      "row": 2,
+      "col": 2,
+      "sources": [
+        {
+          "path": "provider_comparison.py",
+          "line": 196,
+          "end_line": 242,
+          "label": "Local input selection"
+        },
+        {
+          "path": "provider_comparison.py",
+          "line": 487,
+          "end_line": 602,
+          "label": "Bounded provider calls"
+        }
+      ]
+    },
+    {
+      "id": "openai",
+      "type": "external",
+      "label": "OpenAI API",
+      "sublabel": "Direct comparison arm",
+      "row": 2,
+      "col": 3,
+      "sources": [
+        {
+          "path": "provider_comparison.py",
+          "line": 28,
+          "end_line": 40,
+          "label": "Fixed provider endpoints"
+        },
+        {
+          "path": "provider_comparison.py",
+          "line": 354,
+          "end_line": 437,
+          "label": "Validated direct response"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Local computer",
+      "wraps": [
+        "browser",
+        "local-service",
+        "bridge",
+        "keychain",
+        "records",
+        "local-adapter",
+        "benchmark"
+      ],
+      "pad": 25
+    }
+  ],
+  "connections": [
+    {
+      "id": "browser-http",
+      "from": "browser",
+      "to": "local-service",
+      "label": "HTTP /api",
+      "variant": "emphasis"
+    },
+    {
+      "id": "review-request",
+      "from": "local-service",
+      "to": "bridge",
+      "label": "Validated task",
+      "variant": "emphasis"
+    },
+    {
+      "id": "hosted-inference",
+      "from": "bridge",
+      "to": "mubit",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "read-key",
+      "from": "bridge",
+      "to": "keychain",
+      "label": "Read saved key",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "store-evidence",
+      "from": "local-service",
+      "to": "records",
+      "label": "Read / write",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelAt": [
+        450,
+        331
+      ]
+    },
+    {
+      "id": "train-approved",
+      "from": "local-adapter",
+      "to": "records",
+      "label": "Targets / weights",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "benchmark-request",
+      "from": "local-service",
+      "to": "benchmark",
+      "label": "Run pilot",
+      "fromSide": "right",
+      "toSide": "left"
+    },
+    {
+      "id": "benchmark-source",
+      "from": "benchmark",
+      "to": "records",
+      "label": "Saved review",
+      "fromSide": "left",
+      "toSide": "right",
+      "labelDx": -60
+    },
+    {
+      "id": "shared-budget",
+      "from": "benchmark",
+      "to": "bridge",
+      "label": "Reserve calls",
+      "fromSide": "top",
+      "toSide": "bottom"
+    },
+    {
+      "id": "mubit-arm",
+      "from": "benchmark",
+      "to": "mubit",
+      "label": "HTTPS",
+      "fromSide": "right",
+      "toSide": "bottom"
+    },
+    {
+      "id": "direct-arm",
+      "from": "benchmark",
+      "to": "openai",
+      "label": "HTTPS",
+      "fromSide": "right",
+      "toSide": "left"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Local evidence",
+      "items": [
+        "The game runs in the browser. Files sit outside public/.",
+        "Drafts, approvals and provider attempts retain their provenance."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Separate learning paths",
+      "items": [
+        "Memory adds approved answers to a prompt.",
+        "The optional MLX command updates a separate local model."
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Unverified provider training",
+      "items": [
+        "This project has no verified correction-to-hosted-training route.",
+        "Request receipts and local weights do not prove a hosted update."
+      ]
+    }
+  ]
+}
