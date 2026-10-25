@@ -6,7 +6,7 @@ Dino Mubit Lab is a local web application for playing the dinosaur game and revi
 
 Approved review answers can become examples in a later prompt or feed a separate local MLX LoRA pilot. These are different mechanisms. The application has no verified route from its correction exports to a Mubit training job or hosted model version.
 
-The [interactive architecture map](docs/diagrams/dino-mubit-lab.html) contains source links, search, focus, guided views and directed route tracing. Download that HTML file and open it in a browser; GitHub's file view does not run its interactive controls. Its [editable source](docs/diagrams/dino-mubit-lab.architecture.json) is pinned to [commit `556db3c`](https://github.com/MasteraSnackin/dino-mubit-lab/tree/556db3cfc4c60b6cef6738244404d74b7b558870). The map describes implemented relationships at that commit, not observed live traffic. The later request-parsing fix keeps that topology; its current validation rules are recorded in [Error handling](docs/ERROR-HANDLING.md).
+The [interactive architecture map](docs/diagrams/dino-mubit-lab.html) contains source links, search, focus, guided views and directed route tracing. Download that HTML file and open it in a browser; GitHub's file view does not run its interactive controls. The map combines the [README](README.md) with this document and checks its source references against [commit `a4bd5ea`](https://github.com/MasteraSnackin/dino-mubit-lab/tree/a4bd5eae0a7f93a34c85572f23827bb65632e1ee). Its [editable source](docs/diagrams/dino-mubit-lab.architecture.json) describes the implemented relationships at that snapshot, including the current request-validation boundary. It does not represent observed live traffic. The validation rules are recorded in [Error handling](docs/ERROR-HANDLING.md).
 
 ## Key requirements
 
@@ -21,6 +21,11 @@ The [interactive architecture map](docs/diagrams/dino-mubit-lab.html) contains s
 
 ## High-level architecture
 
+![Dino Mubit Lab architecture map](docs/diagrams/dino-mubit-lab.visual-check.1440x900.light.png)
+
+<details>
+<summary>Text overview (Mermaid)</summary>
+
 ```mermaid
 flowchart LR
     browser[Browser game and workbench] -->|Loopback HTTP| server[Python local service]
@@ -34,6 +39,8 @@ flowchart LR
     comparison -->|Frozen review| files
     training[Optional local MLX CLI] -->|Approved answers and receipts| files
 ```
+
+</details>
 
 The browser sends local requests to one Python service. That service keeps evidence in files and calls external inference APIs only through explicit actions. Local training starts through a command, while the web interface reads its saved status and receipts.
 
@@ -211,7 +218,7 @@ These are proposed follow-up work, not implemented capabilities.
 
 The map checks source references against committed blobs, then validates layout and artifact identity. Its delivery receipt binds the editable JSON and generated HTML with SHA-256 hashes. Browser and perceptual checks are recorded separately in the diagram folder; they do not verify provider behaviour or prove runtime traffic.
 
-The in-app browser checks confirmed search results, Mubit bridge focus and source links, the four-node Browser-to-Mubit route, and the two-stop local-learning chapter on a byte-identical loopback preview. The [interaction record](docs/diagrams/dino-mubit-lab.interactions.json) and [route screenshot](docs/diagrams/dino-mubit-lab.interactions.png) record that scope. The review also retains the earlier Playwright `file:` protocol restriction separately.
+The in-app browser checks confirmed search results, Mubit bridge focus and source links, the four-node Browser-to-Mubit route, and the two-stop local-learning chapter on a byte-identical loopback preview. The [interaction record](docs/diagrams/dino-mubit-lab.interactions.json) and [route screenshot](docs/diagrams/dino-mubit-lab.interactions.png) record that scope.
 
 - [Map source](docs/diagrams/dino-mubit-lab.architecture.json)
 - [Interactive HTML](docs/diagrams/dino-mubit-lab.html)

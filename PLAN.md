@@ -32,7 +32,7 @@ Completed on 25 October 2026. The [attachment coverage record](docs/ATTACHMENT-C
 
 - Python regression suite: 288 passed. JavaScript regression suite: 83 passed.
 - Five focused recovery checks passed, including rejection of a late obsolete error. The native browser also exercised an offline refresh, a failed selection and recovery after the temporary server returned.
-- Architecture delivery: nine checks passed, zero errors or warnings, 21 source references and four viewport checks. Search, focus, route tracing and guided views were exercised separately.
+- Architecture delivery: nine checks passed, zero errors or warnings, 24 source references and four viewport checks. Search, focus, route tracing and guided views were exercised separately.
 - Application captures: eight files, including a 16-second GIF. All stills were inspected, the GIF decoded completely, and frames at the start, middle and end were inspected.
 - Documentation integration: relative links and Markdown fences checked; media, final reviewed source and architecture hashes verified. Local keys, user history and model files are outside this package.
 

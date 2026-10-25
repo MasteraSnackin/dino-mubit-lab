@@ -77,7 +77,7 @@ The published [local-play GIF](media/local-play.gif) is a 16-second excerpt of t
 
 Still captures cover the [overview](media/overview.png), [mobile layout](media/mobile.png), [review workflow](media/review-workflow.png), [saved run](media/saved-run.png), [local play](media/local-play.png), initial layout and recovery guidance. All eight published media files were inspected. The saved-run still precedes the final singular-run wording fix. The [capture record](media/capture-record.json) identifies each file, its hash, source details and checks.
 
-The Archify map passed all nine showcase checks with zero errors or warnings and 21 source references pinned to a committed code snapshot. Four viewport checks passed. The [delivery receipt](diagrams/dino-mubit-lab.delivery.json), [visual review](diagrams/dino-mubit-lab.review.md) and [interaction record](diagrams/dino-mubit-lab.interactions.json) preserve those distinct checks.
+The Archify map passed all nine showcase checks with zero errors or warnings and 24 source references pinned to a committed code snapshot. Four viewport checks passed. The [delivery receipt](diagrams/dino-mubit-lab.delivery.json), [visual review](diagrams/dino-mubit-lab.review.md) and [interaction record](diagrams/dino-mubit-lab.interactions.json) preserve those distinct checks.
 
 ## Regression checks
 

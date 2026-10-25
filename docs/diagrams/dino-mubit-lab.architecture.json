@@ -7,7 +7,7 @@
     "quality_profile": "showcase",
     "repository": {
       "url": "https://github.com/MasteraSnackin/dino-mubit-lab",
-      "revision": "556db3cfc4c60b6cef6738244404d74b7b558870"
+      "revision": "a4bd5eae0a7f93a34c85572f23827bb65632e1ee"
     },
     "views": [
       {
@@ -38,7 +38,7 @@
           "mubit",
           "openai"
         ],
-        "note": "One frozen input is sent in three alternating pairs. Token counts and latency are measured per response."
+        "note": "One frozen input, three alternating pairs. Reported token usage and measured response times are saved; missing fields stay unknown."
       }
     ]
   },
@@ -93,9 +93,9 @@
       "sources": [
         {
           "path": "serve.py",
-          "line": 45,
-          "end_line": 211,
-          "label": "HTTP routes"
+          "line": 32,
+          "end_line": 245,
+          "label": "Request validation and routes"
         },
         {
           "path": "review_task_store.py",
@@ -130,6 +130,12 @@
           "line": 170,
           "end_line": 225,
           "label": "Server-side credentials"
+        },
+        {
+          "path": "ARCHITECTURE.md",
+          "line": 24,
+          "end_line": 40,
+          "label": "Documented system relationships"
         }
       ]
     },
@@ -152,6 +158,12 @@
           "line": 28,
           "end_line": 40,
           "label": "Comparison endpoint"
+        },
+        {
+          "path": "README.md",
+          "line": 7,
+          "end_line": 9,
+          "label": "Purpose and learning limits"
         }
       ]
     },
@@ -224,6 +236,12 @@
           "line": 314,
           "end_line": 415,
           "label": "Train and verify weights"
+        },
+        {
+          "path": "ARCHITECTURE.md",
+          "line": 78,
+          "end_line": 88,
+          "label": "Memory and local training distinction"
         }
       ]
     },
@@ -402,7 +420,7 @@
       "dot": "amber",
       "title": "Unverified provider training",
       "items": [
-        "No verified Mubit correction-upload or model-version contract.",
+        "This project has no verified correction-to-hosted-training route.",
         "Request receipts and local weights do not prove a hosted update."
       ]
     }

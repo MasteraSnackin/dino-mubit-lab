@@ -52,6 +52,11 @@ macOS is the tested platform. The current POSIX file-locking implementation does
 
 ## Architecture overview
 
+![Dino Mubit Lab architecture map](docs/diagrams/dino-mubit-lab.visual-check.1440x900.light.png)
+
+<details>
+<summary>Text overview (Mermaid)</summary>
+
 ```mermaid
 flowchart LR
   Browser[Browser game and review panels] -->|Local HTTP| Server[Python server]
@@ -63,9 +68,11 @@ flowchart LR
   Training -->|Receipts and adapter files| Records
 ```
 
+</details>
+
 The browser runs the game and sends local requests to the Python server. The server owns private records and makes explicit provider requests; its public web directory contains only the interface and assets. Local training runs separately from Mubit inference and writes its own evidence.
 
-Read [ARCHITECTURE.md](ARCHITECTURE.md) or download and open the [interactive system map](docs/diagrams/dino-mubit-lab.html). The [editable map source](docs/diagrams/dino-mubit-lab.architecture.json) and [delivery receipt](docs/diagrams/dino-mubit-lab.delivery.json) sit beside it. GitHub displays the HTML source; open the downloaded file in a browser to use the map.
+The Archify map combines this README with [ARCHITECTURE.md](ARCHITECTURE.md), checked against code at [commit `a4bd5ea`](https://github.com/MasteraSnackin/dino-mubit-lab/tree/a4bd5eae0a7f93a34c85572f23827bb65632e1ee). Download and open the [interactive system map](docs/diagrams/dino-mubit-lab.html) to search components, trace routes and switch between the three guided views. The [editable map source](docs/diagrams/dino-mubit-lab.architecture.json) and [delivery receipt](docs/diagrams/dino-mubit-lab.delivery.json) sit beside it. GitHub displays the HTML source; open the downloaded file in a browser to use the map.
 
 ## Installation
 

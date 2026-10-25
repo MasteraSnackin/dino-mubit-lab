@@ -6,8 +6,8 @@
   "previewBytesMatchDeliveredArtifact": true,
   "artifact": {
     "path": "docs/diagrams/dino-mubit-lab.html",
-    "sha256": "a41edf878389a522695bf6d0c50de43ff557f7ffefeea3f1fd7cc449e752c74f",
-    "bytes": 817466
+    "sha256": "129fdbcc2b372a8b31d432b49658606c8198f8740a3dfa8cf904816a02bed33d",
+    "bytes": 818160
   },
   "checks": [
     {
@@ -21,6 +21,12 @@
       "action": "Focus Mubit bridge",
       "locationHash": "#focus=bridge",
       "verifiedSourceLinksVisible": true,
+      "status": "passed"
+    },
+    {
+      "action": "Inspect Mubit bridge source links",
+      "documentSource": "ARCHITECTURE.md:24-40",
+      "revision": "a4bd5eae0a7f93a34c85572f23827bb65632e1ee",
       "status": "passed"
     },
     {
@@ -41,27 +47,31 @@
       "stopCount": 2,
       "localWeightsDistinctionVisible": true,
       "status": "passed"
+    },
+    {
+      "action": "Select provider comparison chapter",
+      "locationHash": "#view=comparison",
+      "stopCount": 3,
+      "reportedUsageAndMissingFieldsLabelled": true,
+      "status": "passed"
     }
   ],
   "screenshot": {
     "path": "docs/diagrams/dino-mubit-lab.interactions.png",
-    "sha256": "73f8f95c0cea08600e05a9299619c2e9f143e04a1b2aae339373015ffd71433c",
-    "bytes": 304327,
+    "sha256": "7a95396070f7302717bfdae8d22f2eb9c1332e8191c10f1d5c1f16eb643a04b2",
+    "bytes": 303721,
     "width": 1280,
     "height": 720,
     "conversion": "Browser JPEG decoded to PNG with ffmpeg; no page-content edits.",
-    "sourceJpegSha256": "81defd4f099c1a69199c198ec27842b9d31026c1c297abcf18dd0854eeb1920b",
-    "visuallyInspected": true
-  },
-  "earlierAttempt": {
-    "surface": "Separate Playwright CLI session",
-    "status": "blocked",
-    "reason": "file: protocol access was disabled",
-    "interactionsPerformed": false
+    "sourceJpegSha256": "8ce08924d67ccde138825913562a81bdbf074d3d0ada18d49a92463d8ba0bd97",
+    "visuallyInspected": true,
+    "captureNote": "Captured after the route camera settled; all four route nodes are visible."
   },
   "limits": [
     "Only the listed controls were checked.",
     "Authored routes are not observed runtime traffic.",
     "No provider request or model activity is demonstrated."
-  ]
+  ],
+  "sourceRevision": "a4bd5eae0a7f93a34c85572f23827bb65632e1ee",
+  "consoleWarningsAndErrors": []
 }

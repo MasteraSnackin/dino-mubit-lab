@@ -7,8 +7,8 @@
   "visualReview": "pending",
   "artifact": {
     "path": "docs/diagrams/dino-mubit-lab.html",
-    "sha256": "a41edf878389a522695bf6d0c50de43ff557f7ffefeea3f1fd7cc449e752c74f",
-    "bytes": 817466
+    "sha256": "129fdbcc2b372a8b31d432b49658606c8198f8740a3dfa8cf904816a02bed33d",
+    "bytes": 818160
   },
   "state": {
     "detail": "read",
@@ -545,5 +545,5 @@
     "receipt": "dino-mubit-lab.visual-check.json",
     "contactSheet": "dino-mubit-lab.visual-check.html"
   },
-  "publicationNote": "Local workspace paths are represented relative to the repository. Artifact hash and measured results are unchanged."
+  "publicationNote": "Local workspace paths are represented relative to the repository. Specification and artifact hashes are unchanged."
 }
