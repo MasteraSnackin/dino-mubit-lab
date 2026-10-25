@@ -31,6 +31,18 @@ Press **Space** or **Up** to start and jump, and **Down** to duck. The local pla
 
 A fresh checkout starts without saved runs, review examples, comparison results or downloaded models. The app runs on your computer; the live system map is a separate static page. See [startup notes](docs/CONFIGURATION.md#startup-notes) if another copy is already using the local port.
 
+## See it in action
+
+**Local gameplay.** A rule-based player running at normal speed. No Mubit calls are made in this recording.
+
+![A local rule-based player jumping over obstacles in Dino Mubit Lab.](docs/media/local-play.gif)
+
+**System map.** A recorded tour of the review, local learning and provider comparison paths. Select the GIF to explore the live map yourself.
+
+[![Recorded exploration of the Dino Mubit Lab system map.](docs/media/system-map.gif)](https://masterasnackin.github.io/dino-mubit-lab/)
+
+[Recording details and source records](docs/media/README.md).
+
 ## Choose what to try
 
 | I want to… | What I need | Where to start |

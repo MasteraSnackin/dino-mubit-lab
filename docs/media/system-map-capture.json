@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-25T06:30:02.459000+00:00",
+  "source": {
+    "url": "https://masterasnackin.github.io/dino-mubit-lab/",
+    "htmlSha256": "129fdbcc2b372a8b31d432b49658606c8198f8740a3dfa8cf904816a02bed33d",
+    "publishedHtmlMatchesRepositorySource": true,
+    "repositorySource": "docs/diagrams/dino-mubit-lab.html",
+    "repositoryRevision": "4cf71abd6f6aeae1f1d979f9c826932427db9c04"
+  },
+  "capture": {
+    "surface": "Codex in-app browser",
+    "method": "Timestamped browser screencast frames",
+    "viewport": {
+      "width": 838,
+      "height": 1033
+    },
+    "crop": {
+      "x": 0,
+      "y": 0,
+      "width": 838,
+      "height": 704
+    },
+    "actions": [
+      {
+        "label": "Open Mubit review",
+        "seconds": 2.331
+      },
+      {
+        "label": "Focus Mubit bridge",
+        "seconds": 5.304
+      },
+      {
+        "label": "Open Local learning",
+        "seconds": 9.273
+      },
+      {
+        "label": "Open Provider comparison",
+        "seconds": 13.272
+      },
+      {
+        "label": "Show entire diagram",
+        "seconds": 18.279
+      },
+      {
+        "label": "Move focus to the heading",
+        "seconds": 19.406
+      }
+    ],
+    "sourceFrames": 347,
+    "sourceTimestampSpanSeconds": 19.399895,
+    "wallClockCaptureSeconds": 22.53,
+    "timing": "Resampled at 12 fps against source timestamps at normal speed; unchanged frames are held until the next capture. The final overview is held through 22 seconds. GIF repeats continuously.",
+    "pageContentComposited": false,
+    "rawFramesPublished": false,
+    "providerCalls": 0
+  },
+  "media": {
+    "path": "docs/media/system-map.gif",
+    "bytes": 2510718,
+    "sha256": "db64a08bf02671775fa969a75f77a967372771327b3e2fe7748eeb806d753b04",
+    "width": 838,
+    "height": 704,
+    "durationSeconds": 22.0,
+    "framesPerSecond": 12,
+    "frames": 264,
+    "loop": true
+  },
+  "checks": {
+    "fullDecodePassed": true,
+    "sampledVisualReviewSeconds": [
+      0,
+      3.5,
+      7.5,
+      11.5,
+      16,
+      21
+    ]
+  },
+  "limits": [
+    "The GIF is a recording. Its linked live page provides the interactive controls.",
+    "The highlighted paths explain system relationships; no gameplay, inference or model training ran during capture.",
+    "The crop keeps the heading, guided controls and map; explanatory cards below the map are only partly visible in the overview."
+  ]
+}

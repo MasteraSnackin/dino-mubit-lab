@@ -10,6 +10,14 @@ It shows a new local gameplay run and a recorded walkthrough of saved Mubit revi
 
 There is no hosted gameplay demo. Run the local server to use the application.
 
+## System map GIF
+
+[Open the live system map](https://masterasnackin.github.io/dino-mubit-lab/) or [view the recorded GIF](system-map.gif).
+
+The 22-second GIF records real browser interactions: opening Mubit review, focusing on the Mubit bridge, switching to Local learning and Provider comparison, then returning to the overview. It runs at normal speed and loops. The GIF is a preview; use the live map to interact with its controls.
+
+The recording is cropped to the top 838 by 704 pixels of the browser viewport and encoded at 12 frames per second. No page content was composited, and no inference or training ran during capture. The [map capture record](system-map-capture.json) preserves the source, actions, timing, file hash and checks. The original [gameplay capture record](capture-record.json) is unchanged.
+
 ## Application captures
 
 These images show the real local application with temporary demonstration records. The GIF follows a local rule-based player for 16 seconds at normal speed. It does not show Mubit inference, hosted training or a measured improvement from AI advice.
