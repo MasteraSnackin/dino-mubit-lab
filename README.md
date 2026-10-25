@@ -6,6 +6,10 @@ Use it as a small testbed for a recurring AI review workflow. You can start with
 
 [Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Recorded results](docs/RESULTS.md) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) · [Live system map](https://masterasnackin.github.io/dino-mubit-lab/)
 
+## Why we built this
+
+The dinosaur game gives us repeatable courses and visible outcomes for testing AI advice. Our goal is to find out whether a suggested change or an approved correction improves a recurring task. We record the baseline, test the change and keep the evidence so the result can be checked.
+
 <a id="installation"></a>
 
 ## Quick start
@@ -75,6 +79,12 @@ The [published Mubit versus OpenAI pilot](docs/RESULTS.md) includes token counts
 - Two game courses and six provider responses to one input are small experiments. They do not establish general improvements in play, quality, speed or cost.
 
 Local keys, run records and model weights stay out of the public repository. [Configuration and privacy](docs/CONFIGURATION.md) explains what is stored locally and what explicit provider actions send.
+
+## Potential commercial uses
+
+Developers or consultants could adapt this into an AI testing workbench: compare model or prompt changes on a fixed set of cases, inspect failures, and measure accuracy, response time and running cost before a release. The saved answers, corrections and comparison records provide a starting point. Repeatable courses could also support automated game testing, checking whether changes improve or harm player behaviour.
+
+A first commercial pilot would apply the workflow to one customer's task, such as support-request routing, and measure errors and staff correction time on unseen cases. That requires new task data and tests; dinosaur results do not establish performance on customer requests. Commercial value has not yet been demonstrated.
 
 <a id="architecture-overview"></a>
 <a id="configuration"></a>
