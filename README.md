@@ -26,10 +26,19 @@ Use it as a small testbed for a recurring AI review workflow. You can start with
 
 Open **http://127.0.0.1:4040/** if the browser does not open automatically. On macOS, you can also double-click `Start Dino.command`. Stop the server with **Ctrl+C** in its Terminal window.
 
-Press **Space** or **Up** to start and jump, and **Down** to duck. The local player works without Mubit.
+To play yourself, press **Space** or **Up** to start and jump, and **Down** to duck.
 
+For a first result without an API key, click **Start local run** and keep the tab visible. The local rule-based player handles the jumps, and the app saves the run when it ends. Under **Saved runs**, choose **Play sampled replay** or **Export run JSON** to inspect the recorded evidence.
 
 A fresh checkout starts without saved runs, review examples, comparison results or downloaded models. The app runs on your computer; the live system map is a separate static page. See [startup notes](docs/CONFIGURATION.md#startup-notes) if another copy is already using the local port.
+
+## Choose what to try
+
+| I want to… | What I need | Where to start |
+| --- | --- | --- |
+| Play the game or watch the local player | The local app; no API key | [Quick start](#quick-start) |
+| Test Mubit advice and review its answer | A Mubit project inference key; provider calls may use credit | [Configure Mubit](docs/CONFIGURATION.md), then follow the workflow below |
+| Train a separate local model from approved answers | Apple silicon, Python 3.12 and the optional model and training setup | [Local adapter guide](LOCAL-ADAPTER-README.txt) |
 
 ## See it in action
 
@@ -42,14 +51,6 @@ A fresh checkout starts without saved runs, review examples, comparison results 
 [![Recorded exploration of the Dino Mubit Lab system map.](docs/media/system-map.gif)](https://masterasnackin.github.io/dino-mubit-lab/)
 
 [Recording details and source records](docs/media/README.md).
-
-## Choose what to try
-
-| I want to… | What I need | Where to start |
-| --- | --- | --- |
-| Play the game or watch the local player | The local app; no API key | [Quick start](#quick-start) |
-| Test Mubit advice and review its answer | A Mubit project inference key; provider calls may use credit | [Configure Mubit](docs/CONFIGURATION.md), then follow the workflow below |
-| Train a separate local model from approved answers | Apple silicon, Python 3.12 and the optional model and training setup | [Local adapter guide](LOCAL-ADAPTER-README.txt) |
 
 <a id="usage"></a>
 <a id="play-and-test-a-suggestion"></a>
