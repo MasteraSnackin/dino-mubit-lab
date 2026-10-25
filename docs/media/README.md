@@ -1,4 +1,16 @@
-# Application captures
+# Demo and application captures
+
+[Back to the project README](../../README.md)
+
+## Recorded walkthrough
+
+[Download the demo MP4](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) or [open the release page](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2). The video is **1 minute 50 seconds**, **1080p** and **7.69 MB**, with George narration, quiet transition effects and selectable English subtitles.
+
+It shows a new local gameplay run and a recorded walkthrough of saved Mubit reviews, answer approval, prompt memory, local training evidence and provider results. Saved results are labelled; the recording does not represent new provider calls or hosted Mubit training.
+
+There is no hosted gameplay demo. Run the local server to use the application.
+
+## Application captures
 
 These images show the real local application with temporary demonstration records. The GIF follows a local rule-based player for 16 seconds at normal speed. It does not show Mubit inference, hosted training or a measured improvement from AI advice.
 
