@@ -1,10 +1,10 @@
 # Dino Mubit Lab
 
-Test AI advice on a local dinosaur game. Run repeatable courses, compare a suggested change with the original player, then review the result. The app keeps the original answer, measurements and correction history together.
+Test Mubit’s advice on a local dinosaur game. A local rule-based player runs repeatable courses. Mubit reviews the recorded evidence and suggests a change, which you test on the same courses. The app keeps the original answer, measurements and correction history together for review.
 
 Use it as a small testbed for a recurring AI review workflow. You can start with local gameplay without an API key or internet connection.
 
-[Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) · [Live system map](https://masterasnackin.github.io/dino-mubit-lab/)
+[Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Recorded results](docs/RESULTS.md) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) · [Live system map](https://masterasnackin.github.io/dino-mubit-lab/)
 
 <a id="installation"></a>
 
