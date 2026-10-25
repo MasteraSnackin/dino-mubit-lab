@@ -3,6 +3,7 @@
 import argparse
 import functools
 import json
+import math
 import os
 import re
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -25,6 +26,37 @@ ROOT = Path(__file__).resolve().parent
 URL = "http://127.0.0.1:4040/"
 IDENTITY = b"dino-local-5455bfa-local-lab-v2\n"
 ORIGINS = {"http://127.0.0.1:4040", "http://localhost:4040"}
+MAX_REQUEST_DEPTH = 32
+
+
+def _unique_members(pairs):
+    result = {}
+    for name, value in pairs:
+        if name in result:
+            raise ValueError("Duplicate JSON member")
+        result[name] = value
+    return result
+
+
+def _request_json(raw):
+    """Read one unambiguous JSON value with bounded nesting and finite numbers."""
+    payload = json.loads(raw, object_pairs_hook=_unique_members)
+    pending = [(iter((payload,)), 0)]
+    while pending:
+        values, depth = pending[-1]
+        try:
+            value = next(values)
+        except StopIteration:
+            pending.pop()
+            continue
+        if depth > MAX_REQUEST_DEPTH:
+            raise ValueError("JSON nesting limit exceeded")
+        if isinstance(value, float) and not math.isfinite(value):
+            raise ValueError("Non-finite JSON number")
+        if isinstance(value, (dict, list)):
+            children = value.values() if isinstance(value, dict) else value
+            pending.append((iter(children), depth + 1))
+    return payload
 
 
 def load_model_setting():
@@ -193,8 +225,11 @@ class Handler(SimpleHTTPRequestHandler):
             return self.json_reply({"ok": False, "message": "The request is too large or incomplete."}, 413)
         self.connection.settimeout(10)
         try:
-            payload = json.loads(self.rfile.read(size))
-        except (ValueError, OSError):
+            raw = self.rfile.read(size)
+            if len(raw) != size:
+                raise ValueError("Incomplete request body")
+            payload = _request_json(raw)
+        except (ValueError, OSError, RecursionError):
             return self.json_reply({"ok": False, "message": "The request could not be read."}, 400)
         if not isinstance(payload, dict):
             return self.json_reply({"ok": False, "message": "A JSON object is required."}, 400)

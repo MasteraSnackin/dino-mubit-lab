@@ -58,6 +58,7 @@
     selected = null;
     ui.detail.hidden = true;
     ui.message.classList.remove('lab-error');
+    ui.message.setAttribute('role', 'status');
     ui.message.textContent = 'Loading saved run…';
     updateReviewButton();
     try {
@@ -84,8 +85,11 @@
       renderReview(); updateReviewButton();
     } catch (error) {
       if (revision !== selectionRevision) return;
-      ui.message.textContent = error.message;
+      ui.message.textContent = error instanceof TypeError || error instanceof SyntaxError
+        ? 'This saved run could not be loaded. Check the local server, refresh runs and select it again.'
+        : error.message;
       ui.message.classList.add('lab-error');
+      ui.message.setAttribute('role', 'alert');
     }
   }
   async function loadRuns(selectId) {
@@ -106,18 +110,37 @@
         ui.tbody.append(row);
       }
       const best = data.runs.reduce((value, run) => Math.max(value, run.score), 0);
-      ui.stats.textContent = data.runs.length ? `${data.runs.length} saved runs · highest recorded score ${best}` : 'No saved runs yet. Start a local run to collect one.';
+      ui.stats.textContent = data.runs.length ? `${data.runs.length} saved ${data.runs.length === 1 ? 'run' : 'runs'} · highest recorded score ${best}` : 'No saved runs yet. Start a local run to collect one.';
       ui.warning.textContent = data.unavailable?.length ? `${data.unavailable.length} saved record(s) could not be read. They have been preserved.` : '';
       if (selectId) await selectRun(selectId);
       else if (!selected && data.runs.length) await selectRun(data.runs[0].id);
+      else if (!selected) {
+        ++selectionRevision;
+        ui.message.textContent = '';
+        ui.message.classList.remove('lab-error');
+        ui.message.setAttribute('role', 'status');
+      }
     } catch (error) {
-      if (revision === listingRevision) ui.warning.textContent = error.message;
+      if (revision === listingRevision) {
+        const previous = ui.tbody.children.length ? 'Previously loaded results are shown. ' : '';
+        ui.warning.textContent = error instanceof TypeError || error instanceof SyntaxError
+          ? `${previous}Run history could not be refreshed. Check the local server, then choose Refresh runs.`
+          : `${previous}${error.message}`;
+        if (!ui.tbody.children.length) ui.stats.textContent = 'Run history is unavailable.';
+      }
     } finally { if (revision === listingRevision) ui.refresh.disabled = false; }
   }
   function init() {
     const header = el('header', null, 'lab-header');
     const title = el('div'); title.append(el('h1', 'Dino · Local lab'), el('p', 'Play at normal speed. Keep the evidence.'));
     header.append(title, el('span', 'Local player available', 'lab-badge'));
+    const navigation = el('nav', null, 'lab-navigation'); navigation.setAttribute('aria-label', 'Lab sections');
+    for (const [label, target] of [['Play', 'game-stage'], ['Compare advice', 'experiment-panel'], ['Review answers', 'learning-panel'], ['Learning modes', 'learning-modes-panel'], ['Compare providers', 'provider-comparison-panel']]) {
+      const link = el('a', label); link.href = `#${target}`; navigation.append(link);
+    }
+    for (const type of ['keydown', 'keyup', 'mousedown', 'mouseup', 'touchstart', 'touchend']) {
+      navigation.addEventListener(type, event => event.stopPropagation());
+    }
     const stage = el('section'); stage.id = 'game-stage'; stage.setAttribute('aria-label', 'Dinosaur game');
     stage.append(document.getElementById('messageBox'), document.getElementById('main-frame-error'), document.getElementById('keyboard-help'));
     const controls = el('div', null, 'lab-controls'), sidebar = el('div', null, 'lab-sidebar');
@@ -128,10 +151,12 @@
     const head = el('div', null, 'runs-head'), refresh = button('Refresh runs', () => loadRuns());
     head.append(el('h2','Saved runs'), refresh);
     const stats = el('p', 'Reading local history…', 'lab-muted'), warning = el('p', '', 'lab-error');
+    warning.setAttribute('role', 'alert');
     const table = el('table', null, 'runs-list'), thead = el('thead'), tr = el('tr');
     ['Score','Duration','Result','Time'].forEach(label => tr.append(el('th', label))); thead.append(tr);
     const tbody = el('tbody'); table.append(thead,tbody); const scroll = el('div',null,'runs-scroll'); scroll.append(table);
     const message = el('p','', 'lab-muted'), detail = el('div'); detail.hidden = true;
+    message.setAttribute('role', 'status');
     const detailTitle = el('h3'), source = el('p','', 'lab-muted'), image = el('img',null,'replay-image');
     const frameLabel = el('p','', 'lab-muted'), replayControls = el('div',null,'replay-controls');
     const play = button('Play sampled replay', toggleReplay), seek = el('input'); seek.type='range'; seek.min='0'; seek.step='1'; seek.value='0'; seek.setAttribute('aria-label','Replay image');
@@ -147,7 +172,7 @@
     const reviewHint = el('p','', 'lab-muted'), reviewOutput = el('div',null,'run-review');
     detail.append(detailTitle,source,image,frameLabel,replayControls,el('p','Sampled screenshots follow their recorded timings; this is not a continuous video.','lab-muted'),actionsDetails,buttons,reviewHint,reviewOutput);
     panel.append(head,stats,warning,scroll,message,detail,el('p','Obstacle sequences are random. These scores are observations, not a controlled benchmark.','lab-muted'));
-    controls.append(sidebar,panel); document.body.prepend(header,stage,controls);
+    controls.append(sidebar,panel); document.body.prepend(header,navigation,stage,controls);
     ui = { panel,refresh,stats,warning,tbody,message,detail,detailTitle,source,image,frameLabel,play,seek,actions,download,review,reviewHint,reviewOutput };
     controls.addEventListener('keydown', event => event.stopPropagation());
     controls.addEventListener('keyup', event => event.stopPropagation());

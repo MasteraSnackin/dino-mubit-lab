@@ -184,7 +184,7 @@
     const a=node('a'); a.href=url; a.download=`dino-unsaved-${pending.record.runId}.json`; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
   function init() {
-    const panel=node('section',null,'experiment-panel'); panel.setAttribute('aria-label','Mubit comparison');
+    const panel=node('section',null,'experiment-panel'); panel.id='experiment-panel'; panel.setAttribute('aria-label','Mubit comparison');
     const head=node('div',null,'experiment-head'); head.append(node('h2','Does Mubit’s advice help?'),node('span','Two-course pilot','experiment-badge'));
     const intro=node('p','A local player handles the jumps. Mubit reviews the failures between runs and proposes one timing change. Both settings face the same courses at normal speed.');
     const identity=node('p','', 'lab-muted'), steps=node('p','', 'experiment-steps');
@@ -203,7 +203,7 @@
     const warning=node('p','','lab-error'), evidence=node('details',null,'experiment-evidence'); evidence.hidden=true; evidence.open=true;
     const evidenceTitle=node('summary'), frames=node('div',null,'experiment-frames'), evidenceNote=node('p','','lab-muted'), actions=node('ol',null,'run-actions'); evidence.append(evidenceTitle,frames,evidenceNote,actions);
     panel.append(head,intro,identity,steps,controls,phase,tableWrap,proposal,results,evidence,footer,warning,node('p','Up to 60 seconds per run. Course A is repeated to check reproducibility. Keep this tab visible and the window size unchanged during each run.','lab-muted'));
-    document.getElementById('game-stage').after(panel);
+    (document.querySelector('.lab-controls') || document.getElementById('game-stage')).after(panel);
     ui={panel,new:fresh,baseline,propose:proposeButton,candidate,stop,reuse,phase,identity,steps,tbody,proposal,results,retry,unsaved,export:download,history,refresh,warning,evidence,evidenceTitle,frames,evidenceNote,actions};
     for(const type of ['keydown','keyup','mousedown','mouseup','touchstart','touchend']) panel.addEventListener(type,event=>event.stopPropagation());
     window.addEventListener('dino-controller-request',event=>{if(busy && event.detail?.owner!=='experiment') event.preventDefault();});

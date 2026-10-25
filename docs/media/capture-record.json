@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-25T00:18:44.932314+00:00",
+  "project": "Dino Mubit Lab",
+  "repository": "https://github.com/MasteraSnackin/dino-mubit-lab",
+  "source": {
+    "baselineRevision": "556db3cfc4c60b6cef6738244404d74b7b558870",
+    "captureIncludesWorkingTreeChanges": true,
+    "note": "Captures document this delivery while it was being built. The saved-run still precedes the final singular-run and refresh-error copy fixes. The before-layout still deliberately shows the baseline layout. File hashes below identify the final reviewed implementation, not every earlier screenshot.",
+    "finalReviewedFiles": {
+      "public/workbench.js": "8f4b72ea54d65dcb7a0346272b40a0d6d98b3384578f9eb641806b9b9722b61a",
+      "public/workbench.css": "f1b43ed80125e06d5f78110bdaaec14b306fe855f6821a60a8aefa9f96daf519",
+      "public/experiment.js": "0ad24a6246a00eea23b26f626f1c6828149ac043419e4fc72f73f6ed6bc16de9",
+      "scripts/demo_server.py": "85145128148f517f20c801dfd47310f1173965ab594673b0cabb4ba62eca115b",
+      "serve.py": "649d4dc741e283376493bafe7493298e92056826aa546507d72295781384d947",
+      "test_serve.py": "39549ef42e8ee93cd6558de432bb245fe78db1d39ee012e2ee712f9372974b06"
+    }
+  },
+  "capture": {
+    "surface": "Codex in-app browser",
+    "url": "http://127.0.0.1:4041/",
+    "launchCommand": "python3 scripts/demo_server.py --port 4041",
+    "data": "Temporary isolated directories for all eight stores; real game runs generated for this capture. No private user history was imported.",
+    "providerCalls": 0,
+    "providerCredentialsAvailable": false,
+    "keychainAccessDisabled": true,
+    "originalPilotAtPort4040Modified": false,
+    "screenshots": "Native browser captures, with JPEG-to-PNG conversion where needed. No page content was composited or retouched. Mobile capture uses an explicit 390 x 844 CSS-pixel viewport clip.",
+    "gif": "Timestamped browser screencast frames resampled to 12 fps and palette-encoded with ffmpeg; no time acceleration, added frames or audio. Full duration 16.000 seconds.",
+    "sourceFrameCount": 513,
+    "sourceTimestampSpanSeconds": 15.9750740528,
+    "rawCaptureFilesPublished": false
+  },
+  "observations": {
+    "recordedRun": {
+      "score": 245,
+      "durationSeconds": 22.7,
+      "outcome": "collision",
+      "actions": 32,
+      "sampledReplayImages": 29,
+      "controller": "local-vision-rules",
+      "benchmark": false
+    },
+    "finalRecoveryRun": {
+      "score": 36,
+      "durationSeconds": 4.4,
+      "outcome": "stopped"
+    },
+    "layout": {
+      "desktopCssPixels": [
+        1280,
+        720
+      ],
+      "startButtonTopCssPixels": 535.68,
+      "responsiveWidthsChecked": [
+        320,
+        390
+      ],
+      "horizontalOverflowObserved": false,
+      "navigationLinkHeightAt390CssPixels": 46
+    },
+    "interactionChecks": [
+      "Start and stop local run; save to temporary storage",
+      "Play sampled replay and pause it",
+      "Section navigation jumps to review controls",
+      "Space on focused navigation does not start the game",
+      "Failed refresh retains rows with a previous-results warning",
+      "Failed selection gives actionable local-server guidance",
+      "Refresh after server return clears both warnings and shows the fresh empty store"
+    ],
+    "regression": {
+      "pythonTestsPassed": 288,
+      "javascriptTestsPassed": 83,
+      "targetedRecoveryBranchesPassed": 5,
+      "demoIsolationAndLifecycleChecksPassed": 16
+    }
+  },
+  "media": [
+    {
+      "path": "docs/media/before-layout.png",
+      "sha256": "cf24e7d6a5624c7883dc18966563b85893dfa0ac3f0920a12b6cccd1f47e9a24",
+      "bytes": 148288,
+      "width": 1280,
+      "height": 720,
+      "caption": "Before the navigation and ordering fix: comparison controls occupied the area immediately below the game.",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/media/local-play.gif",
+      "sha256": "373e0005f60b500b90805e2291a2fd86767cab45037d614baed2dec15d4c66aa",
+      "bytes": 821739,
+      "width": 584,
+      "height": 720,
+      "caption": "The first 16 seconds of a real local rule-based run, at normal speed.",
+      "visuallyInspected": true,
+      "durationSeconds": 16.0,
+      "frames": 192,
+      "fullDecodePassed": true,
+      "sampledReviewSeconds": [
+        0,
+        8,
+        15
+      ]
+    },
+    {
+      "path": "docs/media/local-play.png",
+      "sha256": "cfdc984fe1e7c820f8863a6fbe9f30fc1d181cc2c9e94796060abacaf794e057",
+      "bytes": 217091,
+      "width": 838,
+      "height": 1033,
+      "caption": "A real local rule-based run in progress. No Mubit inference was used.",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/media/mobile.png",
+      "sha256": "542c5b928261be9c91efc2ec9706e958bc648c42e39f302d559c0dd59534bc55",
+      "bytes": 49192,
+      "width": 390,
+      "height": 844,
+      "caption": "The 390 CSS-pixel responsive layout following the recorded run.",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/media/overview.png",
+      "sha256": "b38781a4441ff5a73957fd10ecaf1dcb004b3706c792ebb97aa9ffbe84d82107",
+      "bytes": 153474,
+      "width": 1280,
+      "height": 720,
+      "caption": "After the layout fix: section navigation, game, local play controls and saved-run list.",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/media/refresh-error.png",
+      "sha256": "9c4676c6f164853c464ad0d7793738105197f168e15808f7a0e16def52dbe50e",
+      "bytes": 282764,
+      "width": 838,
+      "height": 1033,
+      "caption": "The final failed-refresh and failed-selection guidance, with the previously loaded row clearly labelled.",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/media/review-workflow.png",
+      "sha256": "0f88f6d54448104e6188db85cd4638feb4e93dcb6afacd2eff4b78c450a774b8",
+      "bytes": 362253,
+      "width": 838,
+      "height": 1033,
+      "caption": "An empty correction workflow showing that Mubit training is not verified.",
+      "visuallyInspected": true
+    },
+    {
+      "path": "docs/media/saved-run.png",
+      "sha256": "a5351772c1de7726a08ef9b7153c90b5b54431dde221581fd724f4ee77910927",
+      "bytes": 259971,
+      "width": 838,
+      "height": 1033,
+      "caption": "The recorded score245 run and sampled replay controls. The screenshot precedes the later singular-run wording fix.",
+      "visuallyInspected": true
+    }
+  ],
+  "limits": [
+    "Local rule-based gameplay is not Mubit-controlled gameplay.",
+    "Empty review panels demonstrate state labelling, not completed provider review or training.",
+    "No new provider comparison, quality improvement, token saving or hosted model update was measured.",
+    "Sampled replay consists of saved screenshots; it is not continuous recorded video.",
+    "GIF visual review sampled the first, middle and last seconds; the entire file also passed decoding.",
+    "Responsive checks are browser viewport checks, not physical-device certification.",
+    "This is not a complete accessibility or cross-browser audit."
+  ]
+}

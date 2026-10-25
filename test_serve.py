@@ -1,6 +1,7 @@
 """Local route checks. All Mubit functions are mocked; no provider calls."""
 import http.client
 import json
+import socket
 from pathlib import Path
 from http.server import ThreadingHTTPServer
 import threading
@@ -87,6 +88,54 @@ class LocalRoutes(unittest.TestCase):
     def test_unrecognised_host_is_rejected(self):
         code, _ = self.call("GET", "/api/mubit/status", headers={"Host": "example.invalid"})
         self.assertEqual(code, 403)
+
+    @patch.object(serve, "load_model_setting")
+    @patch.object(serve.experiment_store, "create_experiment")
+    def test_ambiguous_nonfinite_and_deep_json_never_reaches_a_route(self, create, settings):
+        bodies = (
+            '{"seed":1,"seed":2}',
+            '{"settings":{"seed":1,"seed":2}}',
+            '{"seed":NaN}',
+            '{"seed":Infinity}',
+            '{"seed":-Infinity}',
+            '{"seed":1e999}',
+            '{"value":' + '[' * 1500 + '0' + ']' * 1500 + '}',
+        )
+        for body in bodies:
+            with self.subTest(body_length=len(body)):
+                code, response = self.call("POST", "/api/experiments", body, {
+                    "Origin": "http://127.0.0.1:4040", "Content-Type": "application/json"})
+                self.assertEqual(code, 400)
+                self.assertEqual(json.loads(response), {
+                    "ok": False, "message": "The request could not be read."})
+        create.assert_not_called()
+        settings.assert_not_called()
+
+    @patch.object(serve, "load_model_setting")
+    @patch.object(serve.experiment_store, "create_experiment")
+    def test_early_eof_never_dispatches_a_short_complete_json_value(self, create, settings):
+        with socket.create_connection(("127.0.0.1", self.server.server_port), timeout=2) as connection:
+            connection.sendall(
+                b"POST /api/experiments HTTP/1.1\r\nHost: 127.0.0.1:4040\r\n"
+                b"Origin: http://127.0.0.1:4040\r\nContent-Type: application/json\r\n"
+                b"Content-Length: 20\r\nConnection: close\r\n\r\n{}")
+            connection.shutdown(socket.SHUT_WR)
+            response = http.client.HTTPResponse(connection)
+            response.begin()
+            self.assertEqual(response.status, 400)
+            self.assertFalse(json.loads(response.read())["ok"])
+        create.assert_not_called()
+        settings.assert_not_called()
+
+    @patch.object(serve, "load_model_setting")
+    @patch.object(serve.experiment_store, "create_experiment", return_value={"ok": True})
+    def test_valid_nested_json_still_reaches_route_unchanged(self, create, settings):
+        payload = {"settings": {"lead": 1.5}, "notes": ["NaN and duplicate words are text", None, True]}
+        code, response = self.call("POST", "/api/experiments", json.dumps(payload), {
+            "Origin": "http://127.0.0.1:4040", "Content-Type": "application/json"})
+        self.assertEqual(code, 200)
+        self.assertTrue(json.loads(response)["ok"])
+        create.assert_called_once_with(payload)
 
     @patch.object(serve.provider_comparison, "run")
     @patch.object(serve.provider_comparison, "status", return_value={"ok": True, "comparison": {"status": "not_started"}})

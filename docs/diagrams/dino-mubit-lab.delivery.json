@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "architecture",
+  "input": "docs/diagrams/dino-mubit-lab.architecture.json",
+  "output": "docs/diagrams/dino-mubit-lab.html",
+  "specification": {
+    "sha256": "69fc3a7858ed978236ba12dc0605cf22149058c635493086750259364b133b0f",
+    "bytes": 9297
+  },
+  "artifact": {
+    "sha256": "a41edf878389a522695bf6d0c50de43ff557f7ffefeea3f1fd7cc449e752c74f",
+    "bytes": 817466
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  },
+  "evidence": {
+    "verified": true,
+    "repository": "https://github.com/MasteraSnackin/dino-mubit-lab",
+    "revision": "556db3cfc4c60b6cef6738244404d74b7b558870",
+    "references": 21
+  },
+  "publicationNote": "Local workspace paths are represented relative to the repository. Specification and artifact hashes are unchanged."
+}

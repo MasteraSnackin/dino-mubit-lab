@@ -1,0 +1,67 @@
+{
+  "format": "dino-architecture-interaction-check-v1",
+  "date": "2026-10-25",
+  "surface": "Codex in-app browser",
+  "previewUrl": "http://127.0.0.1:4042/architecture.html",
+  "previewBytesMatchDeliveredArtifact": true,
+  "artifact": {
+    "path": "docs/diagrams/dino-mubit-lab.html",
+    "sha256": "a41edf878389a522695bf6d0c50de43ff557f7ffefeea3f1fd7cc449e752c74f",
+    "bytes": 817466
+  },
+  "checks": [
+    {
+      "action": "Search",
+      "query": "Mubit",
+      "matchingNodes": 3,
+      "totalNodes": 9,
+      "status": "passed"
+    },
+    {
+      "action": "Focus Mubit bridge",
+      "locationHash": "#focus=bridge",
+      "verifiedSourceLinksVisible": true,
+      "status": "passed"
+    },
+    {
+      "action": "Route Browser to Mubit API",
+      "nodes": [
+        "Browser",
+        "Local service",
+        "Mubit bridge",
+        "Mubit API"
+      ],
+      "nodeCount": 4,
+      "directedHops": 3,
+      "status": "passed"
+    },
+    {
+      "action": "Select guided chapter 2",
+      "locationHash": "#view=local-learning",
+      "stopCount": 2,
+      "localWeightsDistinctionVisible": true,
+      "status": "passed"
+    }
+  ],
+  "screenshot": {
+    "path": "docs/diagrams/dino-mubit-lab.interactions.png",
+    "sha256": "73f8f95c0cea08600e05a9299619c2e9f143e04a1b2aae339373015ffd71433c",
+    "bytes": 304327,
+    "width": 1280,
+    "height": 720,
+    "conversion": "Browser JPEG decoded to PNG with ffmpeg; no page-content edits.",
+    "sourceJpegSha256": "81defd4f099c1a69199c198ec27842b9d31026c1c297abcf18dd0854eeb1920b",
+    "visuallyInspected": true
+  },
+  "earlierAttempt": {
+    "surface": "Separate Playwright CLI session",
+    "status": "blocked",
+    "reason": "file: protocol access was disabled",
+    "interactionsPerformed": false
+  },
+  "limits": [
+    "Only the listed controls were checked.",
+    "Authored routes are not observed runtime traffic.",
+    "No provider request or model activity is demonstrated."
+  ]
+}

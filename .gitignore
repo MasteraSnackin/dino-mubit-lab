@@ -25,6 +25,8 @@ MUBIT-STATUS.json
 pytorch_model*.bin
 /provider_comparisons/
 /qa/
+/output/playwright/
+.playwright-cli/
 /*-RESULTS.txt
 /MUBIT_SETUP.txt
 /LOCAL-README.txt
