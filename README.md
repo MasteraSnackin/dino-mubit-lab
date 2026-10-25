@@ -2,6 +2,8 @@
 
 A local dinosaur game for testing AI suggestions, reviewing answers and keeping evidence of model experiments.
 
+[Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4)
+
 ## Description
 
 Dino Mubit Lab is for people building a recurring AI review workflow. Play the game, test a Mubit suggestion on repeatable courses, compare it with the baseline, then save and approve a review of the result. The app keeps the original answer, measurements and correction history together.
@@ -168,6 +170,14 @@ Runtime runs, screenshots, experiments, corrections, provider receipts and train
 Mubit receives evidence through the explicit play and review actions described in the interface. The provider may retain recorded calls under its own service arrangements. This app does not establish whether those calls became training data or changed a hosted model.
 
 ## Screenshots and demo
+
+### Recorded walkthrough
+
+[Download the demo MP4](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) or [open the release page](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2). The video is **1 minute 50 seconds**, **1080p** and **7.69 MB**, with George narration, quiet transition effects and selectable English subtitles.
+
+It shows a new local gameplay run and a recorded walkthrough of saved Mubit reviews, answer approval, prompt memory, local training evidence and provider results. Saved results are labelled; the recording does not represent new provider calls or hosted Mubit training.
+
+### Application captures
 
 The following captures show the local application using separate demonstration records. The [capture guide](docs/media/README.md) includes mobile, saved-run and recovery views; the [capture record](docs/media/capture-record.json) describes the source, actions and verification. Local gameplay in the GIF does not demonstrate Mubit inference or model training.
 
