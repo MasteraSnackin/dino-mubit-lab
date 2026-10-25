@@ -18,7 +18,15 @@ The 22-second GIF records real browser interactions: opening Mubit review, focus
 
 The recording is cropped to the top 838 by 704 pixels of the browser viewport and encoded at 12 frames per second. No page content was composited, and no inference or training ran during capture. The [map capture record](system-map-capture.json) preserves the source, actions, timing, file hash and checks. The original [gameplay capture record](capture-record.json) is unchanged.
 
-## Application captures
+## First-run workflow GIF
+
+[Watch the local workflow](local-workflow.gif): start the rule-based player, stop the run, inspect the saved result, play its sampled screenshots and pause the replay. The 28-second recording runs at normal speed, has no sound and loops.
+
+This is a real interaction recording from a temporary demonstration session with provider access disabled. The observed run saved a score of 94 after 10.0 seconds with outcome **stopped**, 12 actions and 13 sampled images. These are observations from one random course, not a benchmark. The replay follows saved screenshot timings and is not continuous video.
+
+The GIF is 584 by 720 pixels at 12 frames per second, about 1.25 MB. The [workflow capture record](local-workflow-capture.json) contains the source, actions, measurements and verification. The original gameplay GIF and its capture record remain below.
+
+## Earlier application captures
 
 These images show the real local application with temporary demonstration records. The GIF follows a local rule-based player for 16 seconds at normal speed. It does not show Mubit inference, hosted training or a measured improvement from AI advice.
 

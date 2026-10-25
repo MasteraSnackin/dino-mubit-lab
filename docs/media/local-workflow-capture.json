@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-25T06:44:33.188000+00:00",
+  "method": "Product Demo Walkthrough: actual browser interactions",
+  "source": {
+    "repositoryRevision": "9a8b50256cc73c0b6f65188bca966221f2508a37",
+    "url": "http://127.0.0.1:4041/",
+    "launchCommand": "python3 scripts/demo_server.py --port 4041",
+    "files": {
+      "public/local-player.js": "ecaee29538090446addad112efad0894c373b6ed7bc0aa20db57129445f81f68",
+      "public/workbench.js": "8f4b72ea54d65dcb7a0346272b40a0d6d98b3384578f9eb641806b9b9722b61a",
+      "public/workbench.css": "f1b43ed80125e06d5f78110bdaaec14b306fe855f6821a60a8aefa9f96daf519",
+      "scripts/demo_server.py": "85145128148f517f20c801dfd47310f1173965ab594673b0cabb4ba62eca115b"
+    }
+  },
+  "capture": {
+    "surface": "Codex in-app browser",
+    "viewport": {
+      "width": 838,
+      "height": 1033
+    },
+    "encodedFrameSize": {
+      "width": 584,
+      "height": 720
+    },
+    "resize": "Browser screencast preserved the viewport aspect ratio within its 720-pixel height limit. No additional crop or page-content compositing.",
+    "sourceFrames": 1587,
+    "sourceTimestampSpanSeconds": 24.369143,
+    "actions": [
+      {
+        "label": "Start local run",
+        "clicked": true,
+        "seconds": 2.292
+      },
+      {
+        "label": "Stop local run",
+        "clicked": true,
+        "seconds": 12.449
+      },
+      {
+        "label": "Play sampled replay",
+        "clicked": true,
+        "seconds": 16.476
+      },
+      {
+        "label": "Pause replay",
+        "clicked": true,
+        "seconds": 24.296
+      }
+    ],
+    "timing": "Resampled from browser timestamps at 12 fps without acceleration. Unchanged frames are held until the next capture; paused replay holds to 28 seconds.",
+    "providerCalls": 0,
+    "providerAccessDisabled": true,
+    "keychainAccessDisabled": true,
+    "data": "Temporary isolated stores; fresh real run; no private records imported.",
+    "rawFramesPublished": false
+  },
+  "observations": {
+    "controller": "local rule-based player",
+    "score": 94,
+    "displayedDurationSeconds": 10.0,
+    "outcome": "stopped",
+    "actions": 12,
+    "sampledImages": 13,
+    "replayPausedAtDisplayedSeconds": 7.3,
+    "replayPausedAtImage": 9,
+    "benchmark": false
+  },
+  "media": {
+    "path": "docs/media/local-workflow.gif",
+    "sha256": "5ea5e0fb006ba578fdffc62a70cbf426d96702e0b0f1985302c6a10ba12a6650",
+    "bytes": 1247045,
+    "width": 584,
+    "height": 720,
+    "durationSeconds": 28.0,
+    "frames": 336,
+    "framesPerSecond": 12,
+    "loop": true,
+    "audio": false
+  },
+  "checks": {
+    "fullGifDecodePassed": true,
+    "dimensionsDurationAndFrameCountPassed": true,
+    "sampledVisualReviewSeconds": [
+      0,
+      6,
+      13,
+      17,
+      21,
+      27
+    ],
+    "startSavePlayAndPauseObserved": true
+  },
+  "limits": [
+    "Gameplay is controlled by local rules; Mubit is not involved.",
+    "Replay uses sampled screenshots and does not represent a continuous video recording.",
+    "The score and duration describe one manually stopped random run, not comparative performance.",
+    "GIF frame delays alternate around the nominal 12 fps because GIF timing uses centiseconds."
+  ]
+}

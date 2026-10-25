@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "title": "Mubit versus OpenAI directly: one-input provider pilot",
+  "completedAt": "2026-10-24T23:52:56.282+00:00",
+  "status": "completed",
+  "method": {
+    "uniqueInputs": 1,
+    "matchedPairs": 3,
+    "successfulResponses": 6,
+    "requestedModel": "gpt-6-luna",
+    "returnedModelIdentifiersMatchRequested": true,
+    "sameRequestBody": true,
+    "responseFormat": "json_object",
+    "maxCompletionTokens": 2000,
+    "store": false,
+    "temperatureExplicitlySet": false,
+    "memoryExamplesAdded": 0,
+    "automaticInferenceRetries": 0,
+    "expectedAssessment": "unchanged",
+    "expectedDecision": "retain_baseline"
+  },
+  "measurements": [
+    {
+      "pair": 1,
+      "requestOrder": [
+        "mubit",
+        "direct"
+      ],
+      "mubit": {
+        "promptTokens": 689,
+        "completionTokens": 223,
+        "totalTokens": 912,
+        "latencyMs": 2995
+      },
+      "direct": {
+        "promptTokens": 689,
+        "completionTokens": 239,
+        "totalTokens": 928,
+        "latencyMs": 4402
+      }
+    },
+    {
+      "pair": 2,
+      "requestOrder": [
+        "direct",
+        "mubit"
+      ],
+      "mubit": {
+        "promptTokens": 689,
+        "completionTokens": 232,
+        "totalTokens": 921,
+        "latencyMs": 3091
+      },
+      "direct": {
+        "promptTokens": 689,
+        "completionTokens": 244,
+        "totalTokens": 933,
+        "latencyMs": 3083
+      }
+    },
+    {
+      "pair": 3,
+      "requestOrder": [
+        "mubit",
+        "direct"
+      ],
+      "mubit": {
+        "promptTokens": 689,
+        "completionTokens": 228,
+        "totalTokens": 917,
+        "latencyMs": 3314
+      },
+      "direct": {
+        "promptTokens": 689,
+        "completionTokens": 171,
+        "totalTokens": 860,
+        "latencyMs": 2598
+      }
+    }
+  ],
+  "aggregates": {
+    "mubit": {
+      "label": "Mubit",
+      "successfulResponses": 3,
+      "totals": {
+        "promptTokens": 2067,
+        "completionTokens": 683,
+        "totalTokens": 2750,
+        "latencyMs": 9400
+      },
+      "means": {
+        "promptTokens": 689,
+        "completionTokens": 227.667,
+        "totalTokens": 916.667,
+        "latencyMs": 3133.333
+      },
+      "checksPassed": {
+        "jsonValid": 3,
+        "assessmentMatchesMeasured": 3,
+        "decisionMatchesExpected": 3,
+        "mentionsAllMeasurements": 3
+      }
+    },
+    "direct": {
+      "label": "OpenAI directly",
+      "successfulResponses": 3,
+      "totals": {
+        "promptTokens": 2067,
+        "completionTokens": 654,
+        "totalTokens": 2721,
+        "latencyMs": 10083
+      },
+      "means": {
+        "promptTokens": 689,
+        "completionTokens": 218,
+        "totalTokens": 907,
+        "latencyMs": 3361
+      },
+      "checksPassed": {
+        "jsonValid": 3,
+        "assessmentMatchesMeasured": 3,
+        "decisionMatchesExpected": 3,
+        "mentionsAllMeasurements": 3
+      }
+    }
+  },
+  "percentDifferenceMubitRelativeToDirect": {
+    "promptTokens": 0.0,
+    "completionTokens": 4.434,
+    "totalTokens": 1.066,
+    "latencyMs": -6.774
+  },
+  "cost": {
+    "measured": false,
+    "amount": null,
+    "currency": null
+  },
+  "provenance": {
+    "sourceType": "Saved request manifest and response receipt",
+    "storedIntegrityHashesVerifiedBeforePublication": true,
+    "rawSourceRecordsPublished": false,
+    "newProviderCallsForPublication": 0
+  },
+  "limitations": [
+    "Three repetitions of one input are not three independent test cases.",
+    "Token counts are provider-reported; monetary cost was not measured.",
+    "Latency is observed request time and includes conditions outside the model; Mubit was faster in one of the three pairs.",
+    "Checks assess JSON/schema, expected labels and mentions of measurements, not general answer quality or reasoning correctness.",
+    "Matching model identifiers do not prove identical backend weights or serving configuration.",
+    "This comparison did not verify model training or a hosted model update.",
+    "The public summary omits raw prompts, replies and private identifiers; it supports arithmetic checking, not independent reproduction of the original requests."
+  ]
+}

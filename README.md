@@ -42,9 +42,9 @@ A fresh checkout starts without saved runs, review examples, comparison results 
 
 ## See it in action
 
-**Local gameplay.** A rule-based player running at normal speed. No Mubit calls are made in this recording.
+**Start, save and replay a local run.** Watch the rule-based player, stop the run and inspect its saved result. Gameplay runs at normal speed; the replay uses sampled screenshots. No Mubit calls are made in this recording.
 
-![A local rule-based player jumping over obstacles in Dino Mubit Lab.](docs/media/local-play.gif)
+![Recorded local gameplay followed by a saved result and its sampled-image replay.](docs/media/local-workflow.gif)
 
 **System map.** A recorded tour of the review, local learning and provider comparison paths. Select the GIF to explore the live map yourself.
 
@@ -66,6 +66,8 @@ A fresh checkout starts without saved runs, review examples, comparison results 
 The [full workflow](docs/REFERENCE.md#usage) explains the controls, approvals and evidence each step keeps. Mubit can also choose moves directly; [gameplay modes](docs/REFERENCE.md#features) explain normal-speed and paused play.
 
 ## Reading the results
+
+The [published Mubit versus OpenAI pilot](docs/RESULTS.md) includes token counts, request latencies and checks for all three matched pairs. It showed no token saving; its lower average latency through Mubit was not consistent across pairs.
 
 - A saved correction records a review. It does not update a model by itself.
 - Prompt memory adds approved examples to a request. Local LoRA training adapts a separate local model and keeps its own evidence.
