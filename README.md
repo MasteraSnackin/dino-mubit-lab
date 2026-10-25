@@ -1,22 +1,54 @@
 # Dino Mubit Lab
 
-A local dinosaur game for testing AI suggestions, reviewing answers and keeping evidence of model experiments.
+Test AI advice on a local dinosaur game. Run repeatable courses, compare a suggested change with the original player, then review the result. The app keeps the original answer, measurements and correction history together.
+
+Use it as a small testbed for a recurring AI review workflow. You can start with local gameplay without an API key or internet connection.
 
 [Demo video (1:50)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/tag/demo-video-v2) · [Download MP4 (7.69 MB)](https://github.com/MasteraSnackin/dino-mubit-lab/releases/download/demo-video-v2/Dino-Mubit-Lab-recorded-demo.mp4) · [Live system map](https://masterasnackin.github.io/dino-mubit-lab/)
 
-## Description
+<a id="installation"></a>
 
-Dino Mubit Lab is for people building a recurring AI review workflow. Play the game, test a Mubit suggestion on repeatable courses, compare it with the baseline, then save and approve a review of the result. The app keeps the original answer, measurements and correction history together.
+## Quick start
 
-Mubit inference, approved examples reused in a prompt, and optional local LoRA training have separate records. A saved correction is not a model update, and this project has not verified training or a new model version hosted by Mubit.
+1. Install Python 3 and Git on macOS. Windows is not currently supported. Node.js is only needed if you want to run the JavaScript tests.
+2. Clone the project:
+
+   ```sh
+   git clone https://github.com/MasteraSnackin/dino-mubit-lab.git
+   cd dino-mubit-lab
+   ```
+
+3. Start the local server:
+
+   ```sh
+   python3 serve.py --open
+   ```
+
+Open **http://127.0.0.1:4040/** if the browser does not open automatically. On macOS, you can also double-click `Start Dino.command`. Stop the server with **Ctrl+C** in its Terminal window.
+
+Press **Space** or **Up** to start and jump, and **Down** to duck. The local player works without Mubit.
+
+A fresh checkout contains no saved runs, review examples, comparison results or downloaded models. If another copy of this app already owns port 4040, the launcher opens that running copy; stop it first to run this checkout.
+
+The server listens on this computer only and serves `public/`. The repository is public source code for a local app. The complete app cannot run on GitHub Pages because the API and private storage need the Python server.
+
+## Choose what to try
+
+| I want to… | What I need | Where to start |
+| --- | --- | --- |
+| Play the game or watch the local player | The local app; no API key | [Quick start](#quick-start) |
+| Test Mubit advice and review its answer | A Mubit project inference key | [Configure Mubit](#configuration), then [test a suggestion](#play-and-test-a-suggestion) |
+| Train a separate local model from approved answers | Apple silicon, Python 3.12 and the optional model and training setup | [Local adapter guide](LOCAL-ADAPTER-README.txt) |
+
+Mubit inference, approved answers reused in a prompt, and local LoRA training are separate steps with separate records. LoRA adapts a local model; prompt memory supplies examples without changing model weights. Saving a correction alone does not update a model. Training or a new model version hosted by Mubit remains unverified.
 
 ## Contents
 
-- [Description](#description)
+- [Quick start](#quick-start)
+- [Choose what to try](#choose-what-to-try)
 - [Features](#features)
 - [Tech stack](#tech-stack)
 - [Architecture overview](#architecture-overview)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Screenshots and demo](#screenshots-and-demo)
@@ -78,33 +110,9 @@ The Archify map combines this README with [ARCHITECTURE.md](ARCHITECTURE.md), ch
 
 The [standalone HTML file](docs/diagrams/dino-mubit-lab.html), [editable map source](docs/diagrams/dino-mubit-lab.architecture.json) and [delivery receipt](docs/diagrams/dino-mubit-lab.delivery.json) remain available in the repository. GitHub's file viewer displays the HTML source; download that file to open it offline. See the [Pages publishing note](docs/diagrams/PUBLISHING.md) for the hosted copy's source and update process.
 
-## Installation
-
-1. Install a current Python 3 release on macOS. Git is needed to clone the repository. Install Node.js if you want to run the JavaScript tests.
-2. Clone the project:
-
-   ```sh
-   git clone https://github.com/MasteraSnackin/dino-mubit-lab.git
-   cd dino-mubit-lab
-   ```
-
-3. Start the local server:
-
-   ```sh
-   python3 serve.py --open
-   ```
-
-Open **http://127.0.0.1:4040/** if the browser does not open automatically. On macOS, you can also double-click `Start Dino.command`. Stop the server with **Ctrl+C** in its Terminal window.
-
-A fresh checkout contains no saved runs, review examples, comparison results or downloaded models. If another copy of this app already owns port 4040, the launcher opens that running copy; stop it first to run this checkout.
-
-The server listens on this computer only and serves `public/`. The repository is public source code for a local app. The complete app cannot run on GitHub Pages because the API and private storage need the Python server.
-
 ## Usage
 
 ### Play and test a suggestion
-
-Press **Space** or **Up** to start and jump, and **Down** to duck. The local player works without Mubit.
 
 For the recurring review workflow:
 
